@@ -13,7 +13,7 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack(alignment: .top) {
-            Color.white.edgesIgnoringSafeArea(.all)
+            Color.black.edgesIgnoringSafeArea(.all)
 
             ProgressView(value: Double(viewModel.currentEvent.progress), total: 100)
                 .padding()

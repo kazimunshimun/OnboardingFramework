@@ -21,6 +21,7 @@ struct OnboardingStepView: View {
                     .font(.largeTitle)
                     .modifier(entryAnimationModifier(event.entryAnimation))
                     .matchedGeometryEffect(id: "title-\(event.id)", in: namespace)
+                    .foregroundStyle(.secondary)
             }
 
             if let description = event.description {
@@ -28,6 +29,7 @@ struct OnboardingStepView: View {
                     .font(.body)
                     .modifier(entryAnimationModifier(event.entryAnimation))
                     .matchedGeometryEffect(id: "desc-\(event.id)", in: namespace)
+                    .foregroundStyle(.secondary)
             }
 
             Spacer()
