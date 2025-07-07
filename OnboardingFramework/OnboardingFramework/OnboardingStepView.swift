@@ -9,22 +9,29 @@ import SwiftUI
 
 struct OnboardingStepView: View {
     let event: Event
+    let namespace: Namespace.ID
     let onInteractionComplete: () -> Void
 
     var body: some View {
         VStack(spacing: 20) {
+            Spacer()
+            
             if let title = event.title {
                 Text(title)
                     .font(.largeTitle)
                     .modifier(entryAnimationModifier(event.entryAnimation))
+                    .matchedGeometryEffect(id: "title-\(event.id)", in: namespace)
             }
 
             if let description = event.description {
                 Text(description)
                     .font(.body)
                     .modifier(entryAnimationModifier(event.entryAnimation))
+                    .matchedGeometryEffect(id: "desc-\(event.id)", in: namespace)
             }
 
+            Spacer()
+            
             interactionView
         }
         .transition(exitAnimationTransition(event.exitAnimation))
